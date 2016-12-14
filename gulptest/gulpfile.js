@@ -9,6 +9,10 @@ var gulp = require('gulp'),
     runSequence = require('run-sequence'),
     // gutil = require('gulp-util'),
     checkCSS = require('gulp-check-unused-css'),
+    uncss = require('gulp-uncss'),
+    sass = require('gulp-sass'),
+    concat = require('gulp-concat'),
+    nano = require('gulp-cssnano'),
     logs = [];
 
 ///// Build Process /////
@@ -55,4 +59,15 @@ gulp.task('build', function() {
 gulp.task('check', function() {
     return gulp.src('app/*.html')
         .pipe(checkCSS());
+});
+
+gulp.task('rm-unused-css', function () {
+    return gulp.src('app/view/style/*.scss')
+        .pipe(sass())
+        .pipe(concat('main.css'))
+        .pipe(uncss({
+            html: ['app/*.html']
+        }))
+        .pipe(nano())
+        .pipe(gulp.dest('app/dest/style'));
 });

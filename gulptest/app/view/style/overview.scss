@@ -409,20 +409,6 @@
         padding-top: 18px;
     }
 }
-
-.x-gecko {
-    @include multiline_gecko_ellipsis();
-}
-
-.stale-account-icon {
-    @include web-image('ic-info.png', no-repeat);
-    background-size: 11px 11px;
-    height: 11px;
-    width: 11px;
-    display: inline-block;
-    margin-right: 5px;
-}
-
 .stale-tooltip {
     opacity: 1;
     padding-left: 5px !important;
@@ -453,9 +439,6 @@
         font-size: 13px;
         font-weight: 500;
         color: #1d1d1b;
-    }
-    .blocked-account-icon {
-        @include web-image('ic-blocked-tag.png', no-repeat);
         // font-family: roboto;
         // font-size: 8px;
         // font-weight: 500;
@@ -505,9 +488,6 @@
         padding: 6px;
         color: #8e8e8d;
         outline: none;
-    }
-    &:not(.action-popover-opened):hover {
-        @include btn-hover-bg-gradient(#fff, #ecebeb);
     }
     &.action-popover-opened {
         background: rgba(0, 0, 0, 0.05);
@@ -652,9 +632,6 @@
         .negative-value {
             color: #d31c23;
         }
-    }
-    .x-gecko {
-        @include multiline_gecko_ellipsis();
     }
     .ui-grid-header-canvas {
         max-height: 50px !important;
